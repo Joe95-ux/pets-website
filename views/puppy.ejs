@@ -1,0 +1,28 @@
+<%- include("partials/header") %>
+<section id="checkout-section">
+    <div class="wrapper-enclosure">
+        <h1><%= puppy.name %> </h1>
+        <hr>
+        <div class="checkout">
+            <div class="display-image">
+                <img src=../uploads/images/<%= puppy.img %> alt=<%= puppy.name %> class="puppy-img">
+            </div>
+            <div class="pup-details">
+                <h2 class="section-title">Description</h2>
+                <hr class="description-rule">
+                <p><span class="property">Name</span> <%= puppy.name %> </p>
+                <p><span class="property">Sex</span> <%= puppy.sex %> </p>
+                <p><span class="property">Age</span> <%= puppy.age %> old</p>
+                <p><span class="property">Vaccination</span> <%= puppy.vaccination %> </li>
+                    <p class="last-property"><span class="property">Price</span> <%= puppy.price %> </p>
+                    <a href="mailto:gracepups4@gmail.com" class="purchase-btn email-purchase" role="button">Email us</a>
+                    <a href="tel:+14156345213" class="purchase-btn" role="button">Call us</a>
+            </div>
+        </div>
+        <hr>
+    </div>
+
+</section>
+
+
+<%- include("partials/footer") %>
