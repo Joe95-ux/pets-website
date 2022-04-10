@@ -56,21 +56,47 @@ copyrightYear.innerHTML = currentYear;
 // email form using jquery
 
 $(".footer-form").on("submit", (e)=>{
-    e.preventDefault();
-    const email = $("#email").val().trim();
-    const subject = $("#subject").val().trim();
+    
+    const email = $("#client-email").val().trim();
+    const fname = $("#fName").val().trim();
+    const lname = $("#lName").val().trim();
+    const phone = $("#phone").val().trim();
+    const state = $("#state").val().trim();
     const text = $("#message").val().trim();
 
     let data = {
         email,
-        subject,
+        fname,
+        lname,
+        phone,
+        state,
         text
     };
+    console.log(data)
 
     $.post("/email", data, function(){
         console.log("server received our data");
     });
 
 });
+
+// close modal
+
+const closeBtn = document.querySelector(".close");
+const modal = document.querySelector(".contact-overlay");
+const openModal = document.querySelector(".open");
+
+if(closeBtn !== null){
+    closeBtn.addEventListener("click", ()=>{
+        if(modal.classList.contains("open-modal"))
+        modal.classList.remove("open-modal");
+    })
+}
+if(openModal !== null){
+    openModal.addEventListener("click", ()=>{
+        modal.classList.add("open-modal");
+        
+    })
+}
 
 

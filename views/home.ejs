@@ -8,7 +8,7 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="../images/header-imguse1.jpg" class="header-image" alt="..." />
+        <img src="../images/uploadpage-bgr.jpg" class="header-image" alt="..." />
         <div class="carousel-caption d-md-block">
           <div class="header-note-wrapper">
             <h1 class="heading stort-head" >beautiful puppies</h1>
@@ -78,8 +78,8 @@
 
       <article class="single-puppy">
         <div class="img-container">
-          <img src=../uploads/images/<%= allPuppies[i].img%> alt=<%= allPuppies[i].name %> class="puppy-img">
-          <a class="buy-me" type="button" href="/puppies/<%=allPuppies[i].name%>"><i class="fas fa-paw"></i>Buy me</a>
+          <img src=/uploads/images/<%= allPuppies[i].img[0].filename%> alt=<%= allPuppies[i].name %> class="puppy-img">
+          <a class="buy-me" type="button" href="/puppies/<%=allPuppies[i]._id%>"><i class="fas fa-paw"></i>Buy me</a>
         </div>
         <div class="about-puppy">
           <h3 class="name"><%= allPuppies[i].name %></h3>

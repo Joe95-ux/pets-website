@@ -11,16 +11,17 @@
 
 .embla {
     position: relative;
-    background-color: #f7f7f7;
-}
-.home-embla{
-    padding: calc(8vh + 3rem) 0 3rem;
-
-}
+    background-color: none;
+    padding: 20px;
+    max-width: 670px;
+    margin-left: auto;
+    margin-right: auto;
+  }
   
   .embla__viewport {
     overflow: hidden;
     width: 100%;
+    padding-left: 20px;
   }
   
   .embla__viewport.is-draggable {
@@ -43,14 +44,12 @@
   
   .embla__slide {
     position: relative;
-    min-width: 100%;
-    /* padding-left: 10px; */
+    min-width: 50%;
   }
   
   .embla__slide__inner {
     position: relative;
     overflow: hidden;
-    /* height: 190px; */
   }
   
   .embla__slide__img {
@@ -94,10 +93,10 @@
   }
   
   .embla__button--prev {
-    right: 27px;
+    left: 27px;
   }
   
   .embla__button--next {
-    left: 27px;
+    right: 27px;
   }
   

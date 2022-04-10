@@ -1,7 +1,7 @@
 <%- include("partials/header") %>
 <div id="main-container" class="login-register-upload" >
     <h1 class="upload-heading">Upload new puppies here!</h1>
-    <div class="inner-container main-container form-wrapper">
+    <div class="inner-container main-container form-wrapper upload-form-wrapper">
         <div class="conatiner-grid">
             <div class="info-left">
                 <div class="banner">
@@ -34,8 +34,17 @@
                         <input type="text" name="price" placeholder="price">
                     </div>
                     <div class="input">
+                        <label for="rating">Rating</label>
+                        <input type="number" name="rating" placeholder="rating">
+                    </div>
+                    <div class="input">
+                        <label for="description">Description</label>
+                        <textarea name="description" cols="5" rows="5"
+                            placeholder="describe puppy"></textarea>
+                    </div>
+                    <div class="input">
                         <label for="image">Image</label>
-                        <input type="file" placeholder="select an image" name="image">
+                        <input type="file" placeholder="select image" name="photos" multiple>
                     </div>
                     <button class="contact-btn footer-btn" type="submit">Submit</button>
                     <a class="btn btn-light btn-lg" id="logout-btn" href="/logout" role="button">Log Out</a>

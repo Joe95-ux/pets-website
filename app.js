@@ -18,7 +18,7 @@ const connectDB = require("./config/db");
 // const pups = require(__dirname + "/data.js");
 const { getMaxListeners } = require("process");
 const Pup = require("./models/pups");
-const {ensureAuth, ensureGuest} = require("./middleware/auth");
+const { ensureAuth, ensureGuest } = require("./middleware/auth");
 
 const userSchema = require("./models/userSchema");
 // const pupData = require("./puppyData.json");
@@ -57,10 +57,7 @@ const storage = multer.diskStorage({
 
 //upload parameters for multer
 const upload = multer({
-  storage: storage,
-  limits: {
-    fieldSize: 1024 * 1024 * 3,
-  },
+  storage: storage
 });
 
 app.use(
@@ -68,7 +65,10 @@ app.use(
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false,
-    store: MongoStore.create({ mongoUrl: process.env.MONGO_URI, mongoOptions: { useUnifiedTopology: true } }),
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGO_URI,
+      mongoOptions: { useUnifiedTopology: true },
+    }),
   })
 );
 
@@ -102,24 +102,30 @@ passport.deserializeUser(function (id, done) {
 //     }
 // }
 
-app.get("/", function (req, res) {
-  Pup.find({}, function (err, puppies) {
-    if (!err) {
-      res.render("home", {
-        allPuppies: puppies,
-      });
-    }
-  });
+app.get("/",   async (req, res) =>{
+  try{
+    const puppies = await Pup.find({});
+    res.render("home", {
+      allPuppies: puppies,
+    });
+
+
+  }catch(e){
+    console.log(e)
+  }
+
 });
 
-app.post("/uploads", upload.single("image"), ensureAuth, async (req, res) => {
+app.post("/uploads", upload.array('photos', 4), ensureAuth, async (req, res) => {
   let puppy = new Pup({
-    img: req.file.filename,
+    img: req.files,
     name: req.body.name,
     sex: req.body.sex,
     age: req.body.age,
     vaccination: req.body.vaccination,
     price: req.body.price,
+    description:req.body.description,
+    rating: req.body.rating
   });
   try {
     puppy = await puppy.save();
@@ -129,8 +135,8 @@ app.post("/uploads", upload.single("image"), ensureAuth, async (req, res) => {
   }
 });
 
-app.get("/puppies/:puppyName", async (req, res) => {
-  const requestedPuppy = req.params.puppyName;
+app.get("/puppies/:id", async (req, res) => {
+  const requestedPuppy = req.params.id;
   // getPups().then((response) => {
 
   //     response.forEach((puppy) => {
@@ -149,7 +155,7 @@ app.get("/puppies/:puppyName", async (req, res) => {
   //     });
 
   // });
-  let puppy = await Pup.findOne({ name: requestedPuppy });
+  let puppy = await Pup.findOne({ _id: requestedPuppy });
   if (puppy) {
     res.render("puppy", { puppy: puppy });
   } else {
@@ -233,15 +239,14 @@ app.post("/login", function (req, res) {
       });
     }
   });
-
-  
 });
 
 app.post("/email", function (req, res) {
   //send email here.
-  const { email, subject, text } = req.body;
-  console.log("Data:", req.body);
-  sendMail(email, subject, text, function (err, data) {
+  const { email, fname, lname, phone, state, text } = req.body;
+  const body = fname + "," + lname + "," + phone + "," + state + "," + text;
+  const subject = "Inquiry on puppy";
+  sendMail(email, subject, body, function (err, data) {
     if (err) {
       res.status(500).json({
         message: "Internal Error",

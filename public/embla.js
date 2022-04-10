@@ -1,16 +1,22 @@
 const wrap = document.querySelectorAll(".embla");
+const toscroll = document.querySelector(".toscroll");
+const width = $(window).width()
+let value;
+if(width <= 830){
+  value = 1;
+}else{
+  value = 2
+}
+
 
 if (wrap !== null) {
-  const viewPort = Array.from(
-    document.querySelectorAll(".simple_embla_viewport")
-  );
-  console.log(viewPort);
+  const viewPort = Array.from(document.querySelectorAll(".embla__viewport"));
   viewPort.forEach((view) => {
     let embla = EmblaCarousel(view, {
       dragFree: true,
       containScroll: "trimSnaps",
-      slidesToScroll: 2,
-      skipSnaps: false,
+      slidesToScroll: value,
+      skipSnaps: false
     });
 
     const prevBtn = view.nextElementSibling;
@@ -37,3 +43,4 @@ if (wrap !== null) {
     embla.on("init", disablePrevAndNextBtns);
   });
 }
+

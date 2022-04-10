@@ -4,9 +4,11 @@
         <h1><%= puppy.name %> </h1>
         <hr>
         <div class="checkout">
+            <%if (puppy.img){%> 
             <div class="display-image">
-                <img src=../uploads/images/<%= puppy.img %> alt=<%= puppy.name %> class="puppy-img">
+                <img src=/uploads/images/<%= puppy.img[0].filename %> alt=<%= puppy.name %> class="puppy-img">
             </div>
+            <% } %> 
             <div class="pup-details">
                 <h2 class="section-title">Description</h2>
                 <hr class="description-rule">
@@ -15,11 +17,74 @@
                 <p><span class="property">Age</span> <%= puppy.age %> old</p>
                 <p><span class="property">Vaccination</span> <%= puppy.vaccination %> </li>
                     <p class="last-property"><span class="property">Price</span> <%= puppy.price %> </p>
-                    <a href="mailto:gracepups4@gmail.com" class="purchase-btn email-purchase" role="button">Email us</a>
-                    <a href="tel:+14156345213" class="purchase-btn" role="button">Call us</a>
+                    <div class="purchase-btns">
+                        <button class="purchase-btn open">Ask About Me</button>
+                        <a href="tel:+14156345213" class="purchase-btn" role="button">Call us</a>
+                    </div>
+
             </div>
         </div>
         <hr>
+        <div class="pup-bio">
+            <div class="bio-wrapper">
+                <h3>About <%= puppy.name %> </h3>
+                <p><%= puppy.description  %> </p>
+            </div>
+        </div>
+    </div>
+    <div class="contact-overlay">
+        <div class="overlay-inner">
+            <div class="puppy">
+                <img src=/uploads/images/<%= puppy.img[0].filename %> alt=<%= puppy.name %>>
+                <div class="pup-info">
+                    <h4><span><%= puppy.name %></span> is waiting for you!</h4>
+                    <p><%= puppy.sex %> | <%= puppy.age %></p>
+                    <h6>Golden Retriever</h6>
+                </div>
+
+            </div>
+            <div class="contact-inquiry-form">
+                <h2>Finish up and ask about <span class="puppy-name"><%= puppy.name %></span> </h2>
+                <form class="footer-form">
+                    <div class="names">
+                        <div class="firstname">
+                            <label for="fist-name">First Name</label>
+                            <input type="text" id="fName" name="firstname" required>
+                        </div>
+                        <div class="lastname">
+                            <label for="last-name">Last Name</label>
+                            <input type="text" id="lName" name="lastname" required>
+                        </div>
+                    </div>
+                    <div class="input-field">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="client-email" name="email" required>
+                    </div>
+                    <div class="names">
+                        <div class="firstname">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone-number" required>
+                        </div>
+                        <div class="lastname">
+                            <label for="state">State/Province</label>
+                            <input type="text" id="state" name="state/province" required>
+                        </div>
+                    </div>
+                    <div class="input-field">
+                        <textarea name="about-yourself" id="message" cols="5" rows="5"
+                            placeholder="Please, tell us a little about your home and family, so we can do our best to match you with the right puppy."
+                            required></textarea>
+                    </div>
+                    <button type="submit" class="find-btn finish">Submit</button>
+                </form>
+
+            </div>
+            <div class="close">
+                <i class="fas fa-times "></i>
+            </div>
+
+        </div>
+
     </div>
 
 </section>
