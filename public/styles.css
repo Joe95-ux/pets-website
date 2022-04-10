@@ -561,6 +561,7 @@ p.para-note {
   font-weight: bold;
   transition: var(--mainTransition);
   transform: translateX(101%);
+
 }
 
 .buy-me:hover {
