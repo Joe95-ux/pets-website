@@ -137,27 +137,12 @@ app.post("/uploads", upload.array('photos', 4), ensureAuth, async (req, res) => 
 
 app.get("/puppies/:id", async (req, res) => {
   const requestedPuppy = req.params.id;
-  // getPups().then((response) => {
-
-  //     response.forEach((puppy) => {
-  //         let pupName = puppy.name;
-  //         if (requestedPuppy === pupName) {
-  //             res.render("puppy", {
-  //                 image: puppy.img,
-  //                 name: puppy.name,
-  //                 sex: puppy.sex,
-  //                 age: puppy.age,
-  //                 vaccination: puppy.vaccination,
-  //                 price: puppy.price
-
-  //             });
-  //         }
-  //     });
-
-  // });
+  const pups = await Pup.find({});
+  let availPups = pups.filter(pup=>pup._id != requestedPuppy);
+  availPups = availPups.slice(0,4);
   let puppy = await Pup.findOne({ _id: requestedPuppy });
   if (puppy) {
-    res.render("puppy", { puppy: puppy });
+    res.render("puppy", { puppy: puppy, puppies:availPups });
   } else {
     res.redirect("/");
   }
@@ -259,6 +244,10 @@ app.post("/email", function (req, res) {
   });
 });
 
-app.listen(9000, function () {
-  console.log("server has started on port 9000");
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 9000;
+}
+app.listen(port, function () {
+  console.log("Server has started sucessfully");
 });

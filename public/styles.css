@@ -604,28 +604,54 @@ p.para-note {
   font-size: 3rem;
   font-weight: 900;
 }
+.puppy-wrapper-enclosure{
+  max-width: calc(1170px + 4rem);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
 
 .checkout {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .display-image {
-  max-height: 400px;
-  max-width: 450px;
+  flex-basis: 49%;
+  display: flex;
 }
 
-.display-image img {
+.display-image .puppy-img {
   border-radius: 10px;
+  max-height: 400px;
+  max-width: 450px;
+  height: 100%;
+  width: 100%;
+ display: block;
+
+}
+
+.other-images{
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+}
+.other-images img{
+  border-radius: 10px;
+  max-height: 120px;
+  max-width: 135px;
   height: 100%;
   width: 100%;
   object-fit: cover;
+  cursor: pointer;
+}
+.other-images img:not(:last-child){
+  margin-bottom: 10px;
 }
 
 .pup-details {
   text-align: left;
-  flex-basis: 50%;
+  flex-basis: 49%;
   font-size: 1rem;
   font-weight: bold;
 }
@@ -690,23 +716,188 @@ p.para-note {
   display: flex;
   margin-top: 1rem;
   text-align: left;
+  justify-content: space-between;
 }
+.what-clients-say{
+  flex-basis: 49%;
+}
+.what-clients-say-header{
+  display: flex;
+  justify-content: space-between;
+}
+.what-clients-say-header a{
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--tertiaryColor);
+  text-transform: capitalize;
+  font-size: 0.8rem;
+}
+.clients-review-wrapper{
+  display: flex;
+  flex-direction: column;
+  
+}
+.client-card{
+  padding: 1.5rem 1.5rem 0.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgb(0 0 0 / 8%);
+  display: flex;
+}
+.client-card:not(:last-child){
+  margin-bottom: 7px;
+}
+.client-card img{
+  border-radius: 10px;
+  max-width: 150px;
+  max-height: 150px;
+  width: 100%;
+  height: 100%;
+  flex-basis: 30%;
+  margin:0 1rem 0 0;
+}
+.client-card-content{
+  flex-basis: 68%;
+}
+
+.client-card-content h4{
+  position: relative;
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: var(--secondaryColor);
+
+}
+.client-card-content h4 i{
+  color: var(--primaryColor);
+  margin-right: 7px;
+}
+
+
 .bio-wrapper{
-  align-self: flex-end;
-  flex-basis: 50%;
+  flex-basis: 49%;
   margin-left: auto;
 }
-.bio-wrapper h3{
+.bio-about{
+  margin-bottom: 1rem;
+}
+.puppy-facts{
+  width: 100%;
+}
+
+.range-container{
+  display: flex;
+  width: 100%;
+}
+.range-container:not(:last-child){
+  margin-bottom: 5px;
+}
+.range-wrapper{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-self: flex-end;
+  margin-bottom: 3px;
+}
+.quality{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.quality p{
+  margin-bottom: 4px;
+}
+.fa-circle{
+  color: var(--primaryColor);
+}
+.fa-stack{
+  margin-right: 2rem;
+}
+.range-outer{
+  width: 100%;
+  height: 8px;
+  background-color: var(--mainGrey);
+  border-radius: 55px;
+  margin-top: 0;
+}
+.range-inner{
+  border-radius: 55px;
+  background-color: var(--primaryColor);
+  height: 100%;
+  margin: 0;
+
+}
+
+.pup-bio h3{
   color: var(--primaryColor);
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 1rem;
 }
-.bio-wrapper p{
+.pup-bio p{
   color: var(--mainBlack);
   font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.available-puppies h1{
+  margin: 2.5rem;
+}
+.available-puppies a{
+  text-decoration: none;
+}
+.available-pups-wrapper{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-column-gap: 1.5rem;
+  row-gap: 2rem;
+}
+.puppy-card{
+  padding: 1rem;
+  box-shadow: 0 0 8px rgb(0 0 0 / 8%);
+  border-radius: 10px;
+  text-align: left;
+  font-size: 1rem;
+}
+.puppy-card img{
+  width: 100%;
+  height: 250px;
+  display: block;
+  margin-bottom: 7px;
+  border-radius: 10px;
+}
+.puppy-card h4, .puppy-card h3{
   font-size: 1.2rem;
-  line-height: 1.5;
+  font-weight: 500;
+} 
+
+.puppy-card h3{
+  margin-bottom: 7px;
+  font-weight: 600;
+  color: var(--primaryColor);
+}
+.puppy-card h4{
+  color: var(--mainBlack);
+}
+.view-all-wrapper{
+  text-align: right;
+  margin-top: 20px;
+}
+a.view-all{
+  position: relative;
+  font-weight: bolder;
+  text-transform: capitalize;
+  color: var(--tertiaryColor);
+  font-size: 1.2rem;
+  transition: var(--mainTransition);
+}
+a.view-all i{
+  margin-left: 4px;
+  position: relative;
+  top: 2px;
+}
+a.view-all:hover{
+  color: var(--primaryColor);
 }
 
 
@@ -943,7 +1134,9 @@ textarea {
 }
 
 #client-review h1::before,
-#client-review h1::after {
+#client-review h1::after,
+.available-puppies h1::before,
+.available-puppies h1::after {
   position: relative;
   content: '';
   width: 97px;

@@ -99,4 +99,25 @@ if(openModal !== null){
     })
 }
 
+const mainImg = document.querySelector(".puppy-img");
+const otherImgs = Array.from(document.getElementsByClassName("other-image"));
+
+for(let img of otherImgs){
+    if(img!==null){
+        img.addEventListener("click", ()=>{
+            mainImg.src = img.src;
+        })
+    }
+}
+
+$(document).on("click", 'a[href^="#"]', function (event) {
+    event.preventDefault();
+  
+    $("html, body").animate(
+      {
+        scrollTop: $($.attr(this, "href")).offset().top,
+      },
+      500
+    );
+  });
 
