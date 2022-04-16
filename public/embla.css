@@ -46,6 +46,12 @@
     position: relative;
     min-width: 50%;
   }
+
+  @media screen and (max-width:660px){
+    .embla__slide{
+      min-width: 100%;
+    }
+  }
   
   .embla__slide__inner {
     position: relative;
