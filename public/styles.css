@@ -1943,7 +1943,7 @@ a.read-more:hover {
 
 
 .upload-heading {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 900;
   text-align: center;
   margin: 10px 0 25px;
@@ -1981,7 +1981,7 @@ a.read-more:hover {
   height: 8rem;
   background: rgba(255, 255, 255, 0.8);
   display: inline-block;
-  opacity: 0.2;
+  opacity: 0.4;
 }
 
 .banner-text {
@@ -2194,7 +2194,7 @@ a.read-more:hover {
 .primary {
   bottom: 0;
   left: 0;
-  background-color: #e9be50;
+  background-color: var(--tertiaryColor);
   width: 500px;
 }
 
@@ -2217,12 +2217,12 @@ a.read-more:hover {
 }
 
 .admin-heading h1 {
-  font-size: 2.8rem;
-  font-weight: 900;
+  font-size: 2.3rem;
+  font-weight: 700;
 }
 
 .admin-heading p {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
 }
 
 
