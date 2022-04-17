@@ -337,6 +337,10 @@ h1.heading {
     position: relative;
     top: 0;
   }
+  .header-image {
+    height: 600px;
+  
+  }
 
 }
 
@@ -1808,11 +1812,13 @@ textarea {
 
 a.read-more {
   border-radius: 55px;
+  padding: 10px 15px;
   margin-top: 0;
   position: relative;
   top: 0.5rem;
   border: none;
   outline: none;
+  user-select: none;
 }
 
 a.read-more:hover {
@@ -2272,24 +2278,28 @@ address {
 
 .payment-methods {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 
-.payment-methods img {
-  max-width: 120px;
-  max-height: 3rem;
-  width: auto;
-  height: auto;
+.payment-methods h3{
+  font-size: 1.2rem;
+}
+.payment-methods a {
+  text-decoration: none;
+  font-size: 1.8rem;
+  color: var(--primaryColor);
+  align-self: center;
+  margin-top: -10px;
+  transition: var(--mainTransition);
 }
 
-.payment-methods img:not(:last-child) {
-  margin-right: 8px;
-}
-
-.payment-methods img:not(:nth-child(2)) {
-  border-radius: 10px;
+.payment-methods a:hover{
+  color: var(--mainWhite);
 
 }
+
+
 
 
 .footer-heading,
