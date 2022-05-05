@@ -18,7 +18,7 @@ const connectDB = require("./config/db");
 // const pups = require(__dirname + "/data.js");
 const { getMaxListeners } = require("process");
 const Pup = require("./models/pups");
-const { ensureAuth, ensureGuest } = require("./middleware/auth");
+const { ensureAuth, ensureGuest, ensureToken } = require("./middleware/auth");
 
 const userSchema = require("./models/userSchema");
 // const pupData = require("./puppyData.json");
@@ -193,7 +193,7 @@ app.get("/shipping", function (req, res) {
   });
 });
 
-app.post("/register", function (req, res) {
+app.post("/register", ensureToken, function (req, res) {
   User.register(
     { username: req.body.username },
     req.body.password,

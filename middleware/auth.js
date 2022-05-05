@@ -13,4 +13,11 @@ module.exports = {
             return next();
         }
     },
+    ensureToken: function(req, res, next){
+        if(req.body.token === process.env.SECRET_TOKEN){
+            return next();
+        }else{
+            res.render("error")
+        }
+    }
 }
