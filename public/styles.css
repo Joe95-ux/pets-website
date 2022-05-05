@@ -2248,21 +2248,29 @@ a.read-more:hover {
 
 .footer-main {
   display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   width: 100%;
+}
+
+.email-phone{
+  order: 2;
+  text-align: center;
 }
 
 address {
   font-size: 1rem;
 }
 
+
 .email-phone p {
   margin-top: 0.5rem;
 }
 
 .footer-logo {
+  order: 1;
+  margin-bottom: 1.5rem;
   position: relative;
   width: 105.11px;
   height: 5rem;
@@ -2317,7 +2325,7 @@ address {
   font-size: 1rem;
 }
 
-@media screen and (max-width:700px) {
+/* @media screen and (max-width:700px) {
   .footer-logo {
     position: relative;
     width: 70;
@@ -2331,14 +2339,14 @@ address {
     width: auto;
     height: auto;
   }
-}
+} */
 
 @media screen and (max-width:512px) {
   .section-title {
     font-size: 1.5rem;
   }
 
-  .footer-main {
+  /* .footer-main {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -2359,7 +2367,7 @@ address {
 
   .email-phone {
     order: 3;
-  }
+  } */
 
 }
 
