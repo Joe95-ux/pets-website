@@ -1149,10 +1149,10 @@ a.view-all:hover {
   left: 0;
   bottom: 0;
   z-index: 10;
+  display: flex;
   justify-content: center;
   align-items: center;
-  display: flex;
-  padding: calc(8vh + 2rem) 0 2rem;
+  padding: 2rem;
   transition: var(--mainTransition);
   opacity: 0;
   z-index: -1;
@@ -1162,7 +1162,8 @@ a.view-all:hover {
 
 .open-modal {
   opacity: 1;
-  z-index: 6;
+  z-index: 10000;
+  
 }
 
 .overlay-inner {
@@ -1173,12 +1174,14 @@ a.view-all:hover {
   background-color: var(--mainWhite);
   border-radius: 10px;
   max-width: 1000px;
+  max-height: 90vh;
   transform: translateY(50px);
   -webkit-transform: translateY(50px);
   transition: transform 0.5s ease-in-out;
   -webkit-transition: transform 0.5s ease-in-out;
   position: relative;
   box-sizing: border-box;
+  overflow: auto;
 }
 
 .open-modal .overlay-inner {
@@ -1231,7 +1234,11 @@ a.view-all:hover {
   color: var(--primaryColor);
 }
 
-.overlay-inner .close {
+.fixer{
+  position: relative;
+}
+
+ .close {
   position: absolute;
   right: 1.1rem;
   top: 1.1rem;
@@ -1243,8 +1250,10 @@ a.view-all:hover {
   cursor: pointer;
 }
 
+
 .contact-inquiry-form {
   flex-basis: 63%;
+  height: 100%;
 }
 
 @media screen and (max-width:700px) {
