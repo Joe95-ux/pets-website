@@ -1263,7 +1263,6 @@ a.view-all:hover {
     flex-direction: column;
     overflow-y: scroll;
     max-height: 85vh;
-    margin: 1.4rem;
     padding: 1.4rem;
   }
 
