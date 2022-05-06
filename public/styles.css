@@ -1152,7 +1152,6 @@ a.view-all:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
   transition: var(--mainTransition);
   opacity: 0;
   z-index: -1;
@@ -1170,7 +1169,6 @@ a.view-all:hover {
   display: flex;
   justify-content: space-between;
   padding: 2rem;
-  margin: 2rem;
   background-color: var(--mainWhite);
   border-radius: 10px;
   max-width: 1000px;
@@ -1236,12 +1234,15 @@ a.view-all:hover {
 
 .fixer{
   position: relative;
+  margin: 0;
+  padding: 1rem;
+  
 }
 
  .close {
   position: absolute;
-  right: 1.1rem;
-  top: 1.1rem;
+  right: 2.3rem;
+  top: 2.2rem;
   padding: 2px 7px;
   border-radius: 5px;
   background-color: var(--mainGrey);
