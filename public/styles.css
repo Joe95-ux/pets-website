@@ -281,9 +281,20 @@ body {
 .header-image {
   width: 100%;
   object-fit: cover;
-  height: 700px;
+  height: calc(70vh + 80px);
+  filter: brightness(80%);
+  -webkit-filter: brightness(80%);
+  background-color: var(--primaryColor);
 
 }
+@media screen and (max-width:1024px) {
+  .header-image {
+    height: calc(50vh + 80px);
+  
+  }
+
+}
+
 
 .carousel-caption {
   position: absolute;
@@ -332,17 +343,27 @@ h1.heading {
   height: 100%;
 }
 
-@media screen and (max-width:412px) {
+@media screen and (max-width:414px) {
   .header-note-wrapper {
     position: relative;
     top: 0;
   }
   .header-image {
-    height: 600px;
+    height: calc(50vh + 80px);
   
   }
 
 }
+
+@media screen and (max-width:380px) {
+  .header-image {
+    height:calc(50vh + 80px);
+    max-height: auto;
+  
+  }
+
+}
+
 
 .heading,
 .header-note {
@@ -425,7 +446,18 @@ p.para-note {
   }
 
   .carousel-caption p {
-    font-size: 1.2em;
+    font-size: 1.15em;
+
+  }
+
+  .find-btn {
+    padding: 0.8rem 1.5rem;
+  }
+}
+
+@media only screen and (max-width:360px) {
+  .carousel-caption p {
+    font-size: 16px;
 
   }
 
@@ -554,7 +586,7 @@ img{
   padding: 0 3%;
 }
 
-.buy-me {
+a.buy-me {
   position: absolute;
   top: 60%;
   right: 0;
