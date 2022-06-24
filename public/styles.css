@@ -287,10 +287,16 @@ body {
   background-color: var(--primaryColor);
 
 }
+.carousel-item{
+  height: calc(70vh + 80px);
+}
 @media screen and (max-width:1024px) {
   .header-image {
     height: calc(50vh + 80px);
   
+  }
+  .carousel-item{
+    height: calc(50vh + 80px);
   }
 
 }
@@ -355,11 +361,14 @@ h1.heading {
 
 }
 
-@media screen and (max-width:380px) {
+@media screen and (max-width:387px) {
   .header-image {
-    height:calc(50vh + 80px);
+    height:100%;
     max-height: auto;
   
+  }
+  .carousel-item{
+    height: calc(70vh + 80px);
   }
 
 }
