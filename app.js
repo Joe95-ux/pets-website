@@ -164,9 +164,11 @@ app.get("/login", ensureGuest, function (req, res) {
   res.render("login");
 });
 
-app.get("/logout", function (req, res) {
-  req.logOut();
-  res.redirect("/");
+app.get('/logout', function(req, res, next) {
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    res.redirect('/');
+  });
 });
 
 app.get("/uploads", function (req, res) {

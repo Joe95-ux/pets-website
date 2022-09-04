@@ -2318,6 +2318,10 @@ address {
   margin-top: 0.5rem;
 }
 
+a.whats-app{
+  color: var(--mainWhite);
+}
+
 .footer-logo {
   order: 1;
   margin-bottom: 1.5rem;
